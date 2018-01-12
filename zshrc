@@ -12,6 +12,7 @@ stty -ixon
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home
 export PATH=~/Library/Python/3.6/bin:$PATH
 
+source /Users/vkav/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 ##################################Aliases go here##################################
 
 alias workspace='cd $HOME/Documents/MobileLife/Devops-Workspace'
@@ -19,33 +20,50 @@ alias push='git push'
 alias pull='git pull'
 alias status='git status'
 alias myip='curl http://api.ipify.org'
+
+alias cd..='cd ..'
+
+## a quick way to get out of current directory ##
+alias ..='cd ..'
+alias ...='cd ../../../'
+alias ....='cd ../../../../'
+alias .....='cd ../../../../../'
+alias .4='cd ../../../../'
+alias .5='cd ../../../../../'
+## Colorize the grep command output for ease of use (good for log files)##
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias ports='netstat -tulanp'
+# become root #
+alias root='sudo -i'
+alias su='sudo -i'
+# reboot / halt / poweroff
+alias reboot='sudo /sbin/reboot'
+alias poweroff='sudo /sbin/poweroff'
+alias halt='sudo /sbin/halt'
+alias shutdown='sudo /sbin/shutdown'
+## pass options to free ##
+
+## get top process eating memory
+alias psmem='ps aux | sort -nr -k 4'
+alias psmem10='ps aux | sort -nr -k 4 | head -10'
+
+## get top process eating cpu ##
+alias pscpu='ps aux | sort -nr -k 3'
+alias pscpu10='ps aux | sort -nr -k 3 | head -10'
+
+## Get server cpu info ##
+alias cpuinfo='lscpu'
+
+## older system use /proc/cpuinfo ##
+##alias cpuinfo='less /proc/cpuinfo' ##
+
+## get GPU ram on desktop / laptop##
+alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
 ##################################adding keyskeys##################################
 
 ssh-add -K ~/.ssh/id_rsa
-
-awsswitch() {
-	token=$1
-	eval \$(aws-switch-role --role wealth_devops -t \${token})
-}
-
-commit(){
-	commitMessage=$1
-	display_usage() {
-	echo "commit message required"
-	}
-
-	if [  $# -ne 1 ]
-		then
-			display_usage
-			exit 1
-	fi
-			
-	git commit -am "${commitMessage}"
-}
-
-checkout(){
- 	branch=$1
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/vkav/.oh-my-zsh
@@ -53,7 +71,7 @@ export ZSH=/Users/vkav/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -107,7 +125,6 @@ ZSH_THEME="robbyrussell"
 plugins=(
   git
   zsh-autosuggestions
-  zsh-history-substring-search
 )
 
 source $ZSH/oh-my-zsh.sh
