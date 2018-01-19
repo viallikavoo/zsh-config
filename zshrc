@@ -5,9 +5,9 @@ HISTSIZE=5000               #How many lines of history to keep in memory
 HISTFILE=~/.zsh_history     #Where to save history to disk
 SAVEHIST=5000               #Number of history entries to save to disk
 #HISTDUP=erase               #Erase duplicates in the history file
-setopt    appendhistory     #Append history to the history file (no overwriting)
-setopt    sharehistory      #Share history across terminals
-setopt    incappendhistory  #Immediately append to the history file, not just when a term is kill
+setopt appendhistory     #Append history to the history file (no overwriting)
+setopt sharehistory      #Share history across terminals
+setopt incappendhistory  #Immediately append to the history file, not just when a term is kill
 stty -ixon
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home
 export PATH=~/Library/Python/3.6/bin:$PATH
@@ -21,6 +21,7 @@ alias pull='git pull'
 alias status='git status'
 alias myip='curl http://api.ipify.org'
 
+alias awsecrlogin='$($(awslogin))'
 alias cd..='cd ..'
 
 ## a quick way to get out of current directory ##
@@ -61,6 +62,28 @@ alias cpuinfo='lscpu'
 
 ## get GPU ram on desktop / laptop##
 alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
+##################################Functions##################################
+clone(){
+	cloneurl=$1
+	display_usage() {
+		echo "clone url required"
+	}
+
+	if [  $# -ne 1 ]
+		then
+			display_usage
+			exit 1
+	fi
+			
+	git clone git@github.com:mobilelife/${cloneurl}
+}
+
+awslogin(){
+echo "aws ecr get-login --no-include-email --region eu-west-1"
+}
+
+
+
 ##################################adding keyskeys##################################
 
 ssh-add -K ~/.ssh/id_rsa
