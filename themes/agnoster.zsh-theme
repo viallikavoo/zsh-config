@@ -151,3 +151,16 @@ prompt_agnoster_setup() {
 }
 
 prompt_agnoster_setup "$@"
+## Right prompt for agnoster theme
+build_right_prompt() {
+  if [ ! -z "${AWS_ROLE_NAME}" -a ! -z "${AWS_SESSION_DURATION}" -a ! -z "${AWS_SESSION_START_TIME}" ]; then
+    diff=$(expr $AWS_SESSION_DURATION - $(expr $(date +%s) - $AWS_SESSION_START_TIME))
+    if [ ${diff} -gt 0 ]; then
+      echo "[${AWS_ROLE_NAME}|${diff}s] "
+    else
+      awsclear
+    fi
+  fi
+}
+
+RPROMPT='$FG[141]$(build_right_prompt)$(date "+%H:%M:%S")%{%f%b%k%}'

@@ -1,6 +1,8 @@
 ##############################################################################
 # History Configuration
 ##############################################################################
+eval $(ssh-agent -s)
+ssh-add -K /Users/vkav/Documents/MobileLife/Devops-Workspace/github
 HISTSIZE=5000               #How many lines of history to keep in memory
 HISTFILE=~/.zsh_history     #Where to save history to disk
 SAVEHIST=5000               #Number of history entries to save to disk
@@ -16,6 +18,7 @@ source /Users/vkav/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggest
 ##################################Aliases go here##################################
 
 alias workspace='cd $HOME/Documents/MobileLife/Devops-Workspace'
+workspace
 alias push='git push'
 alias pull='git pull'
 alias status='git status'
@@ -61,8 +64,14 @@ alias cpuinfo='lscpu'
 ##alias cpuinfo='less /proc/cpuinfo' ##
 
 ## get GPU ram on desktop / laptop##
+alias secrets='cd $HOME/Documents/MobileLife/Devops-Workspace/secrets-area51'
+alias dec='awsswitch && make decrypt-all'
+alias enc='awsswitch && make encrypt-all'
 alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
 ##################################Functions##################################
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 clone(){
 	cloneurl=$1
 	display_usage() {
@@ -78,11 +87,33 @@ clone(){
 	git clone git@github.com:mobilelife/${cloneurl}
 }
 
+gitcp(){
+        message=$1
+        display_usage() {
+                echo "mesasge required"
+        }
+
+        if [  $# -ne 1 ]
+                then
+                        display_usage
+                        exit 1
+        fi
+
+        git commit -am "$1"
+	git push
+}
 awslogin(){
 echo "aws ecr get-login --no-include-email --region eu-west-1"
 }
 
+awsswitch(){
+eval $(aws-switch-role --role wealth_devops -t $(totp --aws)) 
+}
 
+
+awsclear(){
+	eval $(aws-clear-role) 
+}
 
 ##################################adding keyskeys##################################
 
