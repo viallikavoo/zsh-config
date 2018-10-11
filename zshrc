@@ -2,7 +2,8 @@
 # History Configuration
 ##############################################################################
 eval $(ssh-agent -s)
-ssh-add -K /Users/vkav/Documents/MobileLife/Devops-Workspace/github
+ssh-add -K $HOME/Documents/MobileLife/Devops-Workspace/github
+ssh-add -K $HOME/Documents/MobileLife/Devops-Workspace/Stash
 HISTSIZE=5000               #How many lines of history to keep in memory
 HISTFILE=~/.zsh_history     #Where to save history to disk
 SAVEHIST=5000               #Number of history entries to save to disk
@@ -14,7 +15,7 @@ stty -ixon
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home
 export PATH=~/Library/Python/3.6/bin:$PATH
 
-source /Users/vkav/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 ##################################Aliases go here##################################
 
 alias workspace='cd $HOME/Documents/MobileLife/Devops-Workspace'
@@ -108,7 +109,7 @@ awsclear(){
 ssh-add -K ~/.ssh/id_rsa
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/vkav/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
