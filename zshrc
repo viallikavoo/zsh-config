@@ -110,6 +110,9 @@ awsswitch(){
 eval $(aws-switch-role --role wealth_devops -t $(totp --aws)) 
 }
 
+awsswitchadmin(){
+eval $(aws-switch-role --role wealth_admins -t $(totp --aws))
+}
 
 awsclear(){
 	eval $(aws-clear-role) 
