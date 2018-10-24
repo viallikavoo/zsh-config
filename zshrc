@@ -13,7 +13,7 @@ setopt sharehistory      #Share history across terminals
 setopt incappendhistory  #Immediately append to the history file, not just when a term is kill
 stty -ixon
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home
-export PATH=~/Library/Python/3.6/bin:$PATH
+export PATH=~/Library/Python/3.7/bin:$PATH
 
 source $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 ##################################Aliases go here##################################
@@ -92,11 +92,8 @@ awslogin(){
 echo "aws ecr get-login --no-include-email --region eu-west-1"
 }
 
-awsswitch(){
-eval $(aws-switch-role --role wealth_devops -t $(totp --aws)) 
-}
 
-awsswitchadmin(){
+awsswitch(){
 eval $(aws-switch-role --role wealth_admins -t $(totp --aws))
 }
 
