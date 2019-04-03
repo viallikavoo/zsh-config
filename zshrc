@@ -20,6 +20,7 @@ source $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.z
 
 alias workspace='cd $HOME/Documents/MobileLife/Devops-Workspace'
 workspace
+ls | xargs -P10 -I{} git -C {} pull
 alias push='git push'
 alias pull='git pull'
 alias status='git status'
