@@ -12,7 +12,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/viallikavoo/zsh-config/mas
 cd .oh-my-zsh/tools
 cd $HOME/.oh-my-zsh/custom/plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions
-mv zsh-config/zshrc .oh-my-zsh/zshrc
+mv zsh-config/zshrc .oh-my-zsh/
 rm -rf .zshrc
 rm -rf zsh-config
 ln -s .oh-my-zsh/zshrc .zshrc
