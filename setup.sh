@@ -8,7 +8,7 @@ git clone https://github.com/viallikavoo/zsh-config.git
 cd $HOME/Documents/Workspace/
 ssh-keygen -t rsa -b 4096 -C "vialli_kavoo@hotmail.com"
 cd $HOME
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" &>
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/viallikavoo/zsh-config/master/tools/install.sh)"
 cd .oh-my-zsh/tools
 cd $HOME/.oh-my-zsh/custom/plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions
