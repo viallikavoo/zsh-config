@@ -2,8 +2,8 @@
 # History Configuration
 ##############################################################################
 eval $(ssh-agent -s)
-ssh-add -K $HOME/Documents/MobileLife/Devops-Workspace/github
-ssh-add -K $HOME/Documents/MobileLife/Devops-Workspace/Stash
+ssh-add -K $HOME/Documents/Workspace/github
+ssh-add -K $HOME/Documents/Workspace/Stash
 HISTSIZE=5000               #How many lines of history to keep in memory
 HISTFILE=~/.zsh_history     #Where to save history to disk
 SAVEHIST=5000               #Number of history entries to save to disk
@@ -18,7 +18,7 @@ export PATH=~/Library/Python/3.7/bin:$PATH
 source $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 ##################################Aliases go here##################################
 
-alias workspace='cd $HOME/Documents/MobileLife/Devops-Workspace'
+alias workspace='cd $HOME/Documents/Workspace'
 workspace
 ls | xargs -P10 -I{} git -C {} pull
 alias push='git push'
