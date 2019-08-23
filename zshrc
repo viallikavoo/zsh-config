@@ -20,7 +20,7 @@ source $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.z
 
 alias workspace='cd $HOME/Documents/Workspace'
 workspace
-ls | xargs -P10 -I{} git -C {} pull
+ls -d */| xargs -P10 -I{} git -C {} pull
 alias push='git push'
 alias pull='git pull'
 alias status='git status'
@@ -99,7 +99,7 @@ eval $(aws-switch-role --role wealth_admins -t $(totp --aws))
 }
 
 awsclear(){
-	eval $(aws-clear-role) 
+	eval $(aws-clear-role)
 }
 
 ##################################adding keyskeys##################################
