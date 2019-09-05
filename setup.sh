@@ -6,7 +6,7 @@ cd fonts && ./install.sh
 cd $HOME/Documents/Workspace/
 HOSTNAME=`hostname` ssh-keygen -t rsa -C "$HOSTNAME" -f "$HOME/Documents/Workspace/github" -P "" && cat $HOME/Documents/Workspace/github.pub
 cd $HOME
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/viallikavoo/zsh-config/master/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/viallikavoo/zsh-config/master/install.sh)" "" --unattended
 cd .oh-my-zsh/tools
 cd $HOME/.oh-my-zsh/custom/plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions
