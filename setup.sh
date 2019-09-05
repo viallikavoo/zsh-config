@@ -31,5 +31,17 @@ brew install jq
 brew install awscli
 brew cask install slack
 brew cask install atom
+brew cask install java
+defaults write com.apple.Dock autohide-delay -float 0 && killall Dock &&
+defaults write com.apple.dock expose-animation-duration -float 0.12 && killall Dock &&
+defaults write com.apple.Dock showhidden -bool YES && killall Dock &&
+defaults write com.apple.finder QLEnableTextSelection -bool TRUE && killall Finder &&
+defaults write com.apple.finder AppleShowAllFiles -bool YES && killall Finder &&
+open ~/Documents/Workspace/terminal-app/Dracula.terminal &&
+defaults write com.apple.terminal "Default Window Settings" "Dracula" &&
+defaults write com.apple.terminal "Startup Window Settings" "Dracula" &&
+chflags nohidden ~/Library/ &&
+
+sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName 
 
 #sh -c "$(curl -fsSL https://raw.githubusercontent.com/viallikavoo/zsh-config/master/setup.sh)"
