@@ -19,6 +19,13 @@ ln -s .oh-my-zsh/zshrc .zshrc
 git clone git@github.com:viallikavoo/.vim.git
 rm .vimrc
 ln -s .vim/vimrc .vimrc
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+URL_BREW='https://raw.githubusercontent.com/Homebrew/install/master/install'
+
+echo -n '- Installing brew ... '
+echo | /usr/bin/ruby -e "$(curl -fsSL $URL_BREW)" > /dev/null
+if [ $? -eq 0 ]; then echo 'OK'; else echo 'NG'; fi
+
+#/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install jq
 brew install awscli
