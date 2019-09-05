@@ -29,5 +29,7 @@ if [ $? -eq 0 ]; then echo 'OK'; else echo 'NG'; fi
 #/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install jq
 brew install awscli
+brew cask install slack
+brew cask install atom
 
 #sh -c "$(curl -fsSL https://raw.githubusercontent.com/viallikavoo/zsh-config/master/setup.sh)"
